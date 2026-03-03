@@ -1,4 +1,10 @@
-echo "*" > .vercelignore
-echo "!frontend/" >> .vercelignore
-echo "frontend/.next" >> .vercelignore
-echo "frontend/node_modules" >> .vercelignore
+backend/
+history/
+specs/
+.specify/
+.claude/
+tests/
+test_*.py
+__pycache__/
+*.pyc
+.env

@@ -124,6 +124,13 @@ dmypy.json
 .vscode/
 .idea/
 
+# Node
+node_modules/
+.next/
+.env.local
+.env*.local
+.vercel/
+
 # OS generated files
 .DS_Store
 .DS_Store?

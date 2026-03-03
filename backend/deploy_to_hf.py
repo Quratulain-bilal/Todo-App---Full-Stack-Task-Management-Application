@@ -27,22 +27,21 @@ FOLDERS_TO_UPLOAD = [
 ]
 
 def main():
-    # Login - this will prompt for token if not logged in
+    # Login using HF_TOKEN env var or prompt
     print("Checking Hugging Face authentication...")
+    token = os.environ.get("HF_TOKEN")
+    if token:
+        login(token=token)
     try:
         api = HfApi()
         user_info = api.whoami()
         username = user_info["name"]
         print(f"Logged in as: {username}")
     except Exception:
-        print("Not logged in. Please enter your HuggingFace token.")
-        print("Get it from: https://huggingface.co/settings/tokens")
-        token = input("Enter your HF token (with write access): ").strip()
-        login(token=token)
-        api = HfApi()
-        user_info = api.whoami()
-        username = user_info["name"]
-        print(f"Logged in as: {username}")
+        if not token:
+            print("Not logged in. Set HF_TOKEN environment variable.")
+            return
+        raise
 
     repo_id = f"{username}/{SPACE_NAME}"
 
