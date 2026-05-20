@@ -351,11 +351,6 @@ npm start
 - **User Isolation**: All endpoints validate user ownership
 - **CORS**: Configured for specific origins in production
 - **SQL Injection Prevention**: Uses parameterized queries via SQLModel
-- **Input Validation**: Pydantic schemas validate all inputs
-
-## License
-
-This project is open source and available for personal and commercial use.
-
+- **Input Validation**: Pydantic schemas validate all input
 
 uvicorn main:app --reload --port 8080
